@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,8 +9,8 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f2f5;min-height:100vh;padding:1rem;}
 .app{max-width:480px;margin:0 auto;}
-.tabs{display:flex;gap:8px;margin-bottom:1.25rem;}
-.tab{flex:1;padding:.65rem;border-radius:12px;border:1px solid #ddd;background:#fff;color:#555;cursor:pointer;font-size:14px;font-weight:500;transition:all .15s;}
+.tabs{display:flex;gap:6px;margin-bottom:1.25rem;}
+.tab{flex:1;padding:.6rem .3rem;border-radius:12px;border:1px solid #ddd;background:#fff;color:#555;cursor:pointer;font-size:12px;font-weight:500;transition:all .15s;}
 .tab.active{background:#0A3D7C;color:#fff;border-color:#0A3D7C;}
 .panel{display:none;}.panel.active{display:block;}
 .ph{background:#0A3D7C;border-radius:16px;padding:1.1rem 1.4rem;margin-bottom:.75rem;display:flex;align-items:center;justify-content:space-between;}
@@ -18,9 +19,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .total-box{background:#C8971F;color:#071F40;border-radius:10px;padding:.35rem 1rem;text-align:center;}
 .total-box .num{font-size:28px;font-weight:700;line-height:1;}
 .total-box .lbl{font-size:10px;font-weight:500;}
-.sync-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem;}
-.sync-left{display:flex;align-items:center;gap:6px;}
-.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;flex-shrink:0;transition:background .3s;}
+.sync-row{display:flex;align-items:center;margin-bottom:.85rem;}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;flex-shrink:0;transition:background .3s;margin-right:6px;}
 .sync-dot.on{background:#1DA851;}.sync-dot.err{background:#E24B4A;}
 .sync-txt{font-size:11px;color:#666;}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:1rem;}
@@ -80,44 +80,61 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .wpp-sino-box{width:100%;background:#fff;border-radius:14px;padding:1rem 1.1rem;border:1px solid #e8e8e8;}
 .wpp-sino-preview{background:#f9f9f9;border-radius:10px;padding:.75rem .9rem;font-size:13px;color:#1a1a1a;line-height:1.8;margin-bottom:.75rem;white-space:pre-wrap;border:1px solid #eee;}
 .wpp-hint{font-size:11px;color:#aaa;margin-top:.5rem;line-height:1.5;text-align:center;}
-.admin-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem;gap:1rem;}
-.admin-lock-emoji{font-size:48px;}
-.admin-lock h3{font-size:16px;font-weight:600;color:#1a1a1a;}
-.admin-lock p{font-size:13px;color:#888;text-align:center;}
-.admin-lock input{width:100%;max-width:220px;padding:.75rem;font-size:20px;border-radius:12px;border:1.5px solid #ddd;text-align:center;letter-spacing:.4em;}
-.admin-lock input:focus{outline:none;border-color:#0A3D7C;}
-.admin-lock-btn{padding:.7rem 2rem;border-radius:12px;background:#0A3D7C;color:#fff;border:none;font-size:15px;font-weight:600;cursor:pointer;}
-.admin-lock-err{font-size:12px;color:#E24B4A;min-height:18px;}
-.admin-panel{padding:.25rem 0;}
-.admin-header{background:#0A3D7C;border-radius:14px;padding:1rem 1.2rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
-.admin-header-title{color:#fff;font-size:16px;font-weight:600;}
-.admin-logout{font-size:12px;color:rgba(255,255,255,.65);background:none;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:.3rem .75rem;cursor:pointer;}
-.admin-section{background:#fff;border-radius:14px;border:1px solid #e8e8e8;margin-bottom:1rem;overflow:hidden;}
-.admin-section-hdr{padding:.75rem 1rem;border-bottom:1px solid #f0f0f0;}
-.admin-section-title{font-size:12px;font-weight:600;color:#999;letter-spacing:.06em;text-transform:uppercase;}
-.admin-corretor-block{border-bottom:1px solid #f0f0f0;}
-.admin-corretor-block:last-child{border-bottom:none;}
-.admin-corretor-hdr{display:flex;align-items:center;gap:10px;padding:.75rem 1rem;background:#fafafa;}
-.admin-corretor-emoji{font-size:20px;}
-.admin-corretor-nome{font-size:14px;font-weight:600;color:#1a1a1a;flex:1;}
-.admin-corretor-total{font-size:13px;font-weight:700;color:#0A3D7C;}
-.admin-corretor-count{font-size:12px;color:#999;margin-left:6px;}
-.admin-venda-row{display:flex;align-items:center;gap:8px;padding:.5rem 1rem .5rem 2.5rem;border-top:1px solid #f5f5f5;}
-.admin-venda-hora{font-size:11px;color:#aaa;min-width:40px;}
-.admin-venda-valor{font-size:14px;font-weight:600;color:#1a1a1a;flex:1;}
-.admin-venda-del{width:28px;height:28px;border-radius:8px;border:none;background:#fef0f0;color:#E24B4A;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-.admin-venda-del:hover{opacity:.75;}
-.admin-add-row{display:flex;gap:8px;padding:.65rem 1rem;border-top:1px solid #f0f0f0;background:#f9fff9;}
-.admin-add-select{flex:1;padding:.5rem .75rem;font-size:13px;border-radius:10px;border:1.5px solid #ddd;background:#fff;-webkit-appearance:none;appearance:none;}
-.admin-add-valor{width:110px;padding:.5rem .75rem;font-size:13px;border-radius:10px;border:1.5px solid #ddd;background:#fff;}
-.admin-add-btn{padding:.5rem .85rem;border-radius:10px;background:#0A3D7C;color:#fff;border:none;font-size:13px;font-weight:600;cursor:pointer;}
-.admin-total-box{display:flex;align-items:center;justify-content:space-between;padding:1rem;}
-.admin-total-lbl{font-size:13px;color:#888;}
-.admin-total-val{font-size:22px;font-weight:700;color:#C8971F;}
-.admin-zero-btn{width:100%;padding:.8rem;border-radius:12px;background:#E24B4A;border:none;color:#fff;font-size:15px;font-weight:600;cursor:pointer;}
-.admin-zero-btn:hover{opacity:.88;}
-.admin-save-msg{font-size:12px;color:#0F6E56;text-align:center;min-height:18px;margin:.5rem 1rem;font-weight:600;}
-.empty-vendas{font-size:12px;color:#bbb;text-align:center;padding:.75rem;font-style:italic;}
+.lock-box{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem;gap:1rem;}
+.lock-box h3{font-size:16px;font-weight:600;color:#1a1a1a;}
+.lock-box p{font-size:13px;color:#888;text-align:center;}
+.lock-box input{width:100%;max-width:220px;padding:.75rem;font-size:20px;border-radius:12px;border:1.5px solid #ddd;text-align:center;letter-spacing:.4em;}
+.lock-box input:focus{outline:none;border-color:#0A3D7C;}
+.lock-btn{padding:.7rem 2rem;border-radius:12px;background:#0A3D7C;color:#fff;border:none;font-size:15px;font-weight:600;cursor:pointer;}
+.lock-err{font-size:12px;color:#E24B4A;min-height:18px;}
+.adm-header{background:#0A3D7C;border-radius:14px;padding:1rem 1.2rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.adm-header-title{color:#fff;font-size:16px;font-weight:600;}
+.adm-logout{font-size:12px;color:rgba(255,255,255,.65);background:none;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:.3rem .75rem;cursor:pointer;}
+.mes-nav{background:#fff;border-radius:14px;border:1px solid #e8e8e8;padding:.75rem 1rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.mes-nav-btn{width:34px;height:34px;border-radius:10px;border:1px solid #ddd;background:#f5f5f5;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.mes-nav-btn:disabled{opacity:.3;cursor:default;}
+.mes-nav-center{text-align:center;flex:1;}
+.mes-nav-label{font-size:15px;font-weight:600;color:#1a1a1a;}
+.mes-nav-sub{font-size:11px;color:#aaa;}
+.badge{font-size:10px;background:#0A3D7C;color:#fff;border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:middle;}
+.badge-ro{font-size:10px;background:#f0f0f0;color:#999;border-radius:6px;padding:2px 8px;margin-left:8px;}
+.sec{background:#fff;border-radius:14px;border:1px solid #e8e8e8;margin-bottom:1rem;overflow:hidden;}
+.sec-hdr{padding:.75rem 1rem;border-bottom:1px solid #f0f0f0;font-size:12px;font-weight:600;color:#999;letter-spacing:.06em;text-transform:uppercase;}
+.cor-block{border-bottom:1px solid #f0f0f0;}
+.cor-block:last-child{border-bottom:none;}
+.cor-hdr{display:flex;align-items:center;gap:10px;padding:.75rem 1rem;background:#fafafa;}
+.cor-emoji{font-size:20px;}
+.cor-nome{font-size:14px;font-weight:600;color:#1a1a1a;flex:1;}
+.cor-total{font-size:13px;font-weight:700;color:#0A3D7C;}
+.cor-cnt{font-size:12px;color:#999;margin-left:6px;}
+.venda-row{display:flex;align-items:center;gap:8px;padding:.5rem 1rem .5rem 2.5rem;border-top:1px solid #f5f5f5;}
+.venda-hora{font-size:11px;color:#aaa;min-width:40px;}
+.venda-val{font-size:14px;font-weight:600;color:#1a1a1a;flex:1;}
+.venda-del{width:28px;height:28px;border-radius:8px;border:none;background:#fef0f0;color:#E24B4A;font-size:14px;cursor:pointer;}
+.add-row{display:flex;gap:8px;padding:.65rem 1rem;border-top:1px solid #f0f0f0;background:#f9fff9;}
+.add-sel{flex:1;padding:.5rem .75rem;font-size:13px;border-radius:10px;border:1.5px solid #ddd;background:#fff;-webkit-appearance:none;appearance:none;}
+.add-val{width:110px;padding:.5rem .75rem;font-size:13px;border-radius:10px;border:1.5px solid #ddd;background:#fff;}
+.add-btn{padding:.5rem .85rem;border-radius:10px;background:#0A3D7C;color:#fff;border:none;font-size:13px;font-weight:600;cursor:pointer;}
+.total-row{display:flex;align-items:center;justify-content:space-between;padding:1rem;}
+.total-lbl{font-size:13px;color:#888;}
+.total-val{font-size:22px;font-weight:700;color:#C8971F;}
+.actions{display:flex;gap:8px;padding:0 1rem 1rem;}
+.btn-virar{flex:1;padding:.8rem;border-radius:12px;background:#0A3D7C;border:none;color:#fff;font-size:14px;font-weight:600;cursor:pointer;}
+.btn-zero{flex:1;padding:.8rem;border-radius:12px;background:#E24B4A;border:none;color:#fff;font-size:14px;font-weight:600;cursor:pointer;}
+.save-msg{font-size:12px;color:#0F6E56;text-align:center;min-height:18px;margin:.5rem 1rem;font-weight:600;}
+.empty-v{font-size:12px;color:#bbb;text-align:center;padding:.75rem;font-style:italic;}
+.hist-mes{padding:.85rem 1rem;border-bottom:1px solid #f0f0f0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;}
+.hist-mes:last-child{border-bottom:none;}
+.hist-mes:hover{background:#fafafa;}
+.hist-mes-nome{font-size:14px;font-weight:600;color:#1a1a1a;}
+.hist-mes-stats{font-size:12px;color:#888;}
+.hist-det{display:none;background:#f9f9f9;border-top:1px solid #f0f0f0;}
+.hist-det.open{display:block;}
+.hist-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.2rem;border-bottom:1px solid #f0f0f0;}
+.hist-row:last-child{border-bottom:none;}
+.hist-cor{font-size:13px;color:#1a1a1a;display:flex;align-items:center;gap:6px;}
+.hist-prod{font-size:13px;font-weight:700;color:#0A3D7C;text-align:right;}
+.hist-sinos{font-size:12px;color:#666;text-align:right;}
 </style>
 </head>
 <body>
@@ -126,6 +143,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <button class="tab active" onclick="showTab('painel')">📊 Painel</button>
     <button class="tab" onclick="showTab('sino')">🔔 Sino</button>
     <button class="tab" onclick="showTab('admin')">🔐 Admin</button>
+    <button class="tab" onclick="showTab('historico')">📅 Histórico</button>
   </div>
 
   <div class="panel active" id="tab-painel">
@@ -134,10 +152,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="total-box"><div class="num" id="total-count">0</div><div class="lbl">vendas hoje</div></div>
     </div>
     <div class="sync-row">
-      <div class="sync-left">
-        <div class="sync-dot" id="sync-dot"></div>
-        <span class="sync-txt" id="sync-txt">Conectando...</span>
-      </div>
+      <div class="sync-dot" id="sync-dot"></div>
+      <span class="sync-txt" id="sync-txt">Conectando...</span>
     </div>
     <div class="grid" id="grid-corretoras"></div>
     <div class="feed-box">
@@ -162,13 +178,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
           <option value="WOA">✈️ WOA</option>
           <option value="MJ">⚽ MJ</option>
           <option value="AUREM">🔥 Aurem</option>
-          <option value="ROCHA">💪 Rocha</option>
-          <option value="HENDGES">🐶 Hendges</option>
+          <option value="VERTICE">🎯 Vértice</option>
         </select>
       </div>
       <div class="valor-input-wrap">
         <span class="valor-prefix">R$</span>
-        <input class="valor-input" type="number" id="valor-venda" placeholder="Valor da venda" min="0" step="0.01" />
+        <input class="valor-input" type="number" id="valor-venda" placeholder="Valor da venda" min="0" step="0.01"/>
       </div>
       <button class="sino-btn" id="sino-btn" onclick="tocarSino()">
         <div class="ripple-el" id="ripple"></div>
@@ -190,48 +205,74 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 
   <div class="panel" id="tab-admin">
-    <div class="admin-lock" id="admin-lock">
-      <div class="admin-lock-emoji">🔐</div>
+    <div class="lock-box" id="admin-lock">
+      <div style="font-size:48px">🔐</div>
       <h3>Painel Admin</h3>
       <p>Somente o administrador pode acessar esta área.</p>
-      <input type="password" id="admin-senha-input" placeholder="···" maxlength="10" onkeydown="if(event.key==='Enter')entrarAdmin()" />
-      <div class="admin-lock-err" id="admin-lock-err"></div>
-      <button class="admin-lock-btn" onclick="entrarAdmin()">Entrar</button>
+      <input type="password" id="admin-pw" placeholder="···" maxlength="10" onkeydown="if(event.key==='Enter')entrarAdmin()"/>
+      <div class="lock-err" id="admin-err"></div>
+      <button class="lock-btn" onclick="entrarAdmin()">Entrar</button>
     </div>
-    <div class="admin-panel" id="admin-panel" style="display:none;">
-      <div class="admin-header">
-        <div class="admin-header-title">⚙️ Painel Admin</div>
-        <button class="admin-logout" onclick="sairAdmin()">Sair</button>
+    <div id="admin-panel" style="display:none;">
+      <div class="adm-header">
+        <div class="adm-header-title">⚙️ Painel Admin</div>
+        <button class="adm-logout" onclick="sairAdmin()">Sair</button>
       </div>
-      <div class="admin-section">
-        <div class="admin-section-hdr">
-          <span class="admin-section-title">Produção por corretora</span>
+      <div class="mes-nav">
+        <button class="mes-nav-btn" id="btn-ant" onclick="navMes(-1)">‹</button>
+        <div class="mes-nav-center">
+          <div class="mes-nav-label" id="nav-label">—</div>
+          <div class="mes-nav-sub" id="nav-sub"></div>
         </div>
-        <div id="admin-corretoras"></div>
-        <div class="admin-add-row">
-          <select id="admin-add-corretor" class="admin-add-select">
+        <button class="mes-nav-btn" id="btn-prox" onclick="navMes(+1)">›</button>
+      </div>
+      <div class="sec">
+        <div class="sec-hdr">Produção por corretora <span class="badge-ro" id="ro-badge" style="display:none">SOMENTE LEITURA</span></div>
+        <div id="adm-cors"></div>
+        <div class="add-row" id="add-row">
+          <select id="add-cor" class="add-sel">
             <option value="">Corretora...</option>
             <option value="LA VITA">✨ La Vita</option>
             <option value="FFM">🥁 FFM</option>
             <option value="WOA">✈️ WOA</option>
             <option value="MJ">⚽ MJ</option>
             <option value="AUREM">🔥 Aurem</option>
-            <option value="ROCHA">💪 Rocha</option>
-            <option value="HENDGES">🐶 Hendges</option>
+            <option value="VERTICE">🎯 Vértice</option>
           </select>
-          <input type="number" id="admin-add-valor" class="admin-add-valor" placeholder="R$ valor" min="0" step="0.01" />
-          <button class="admin-add-btn" onclick="adminAdicionarVenda()">+ Add</button>
+          <input type="number" id="add-val" class="add-val" placeholder="R$ valor" min="0" step="0.01"/>
+          <button class="add-btn" onclick="admAdd()">+ Add</button>
         </div>
-        <div class="admin-save-msg" id="admin-save-msg"></div>
+        <div class="save-msg" id="save-msg"></div>
       </div>
-      <div class="admin-section">
-        <div class="admin-total-box">
-          <span class="admin-total-lbl">💰 Total geral produção</span>
-          <span class="admin-total-val" id="admin-total-prod">R$ 0,00</span>
+      <div class="sec">
+        <div class="total-row">
+          <span class="total-lbl">💰 Total geral produção</span>
+          <span class="total-val" id="adm-total">R$ 0,00</span>
         </div>
-        <div style="padding:0 1rem 1rem;">
-          <button class="admin-zero-btn" onclick="adminZerarTudo()">🔄 Zerar tudo</button>
+        <div class="actions" id="adm-actions">
+          <button class="btn-virar" onclick="virarMes()">📅 Virar mês</button>
+          <button class="btn-zero" onclick="admZerar()">🔄 Zerar tudo</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="tab-historico">
+    <div class="lock-box" id="hist-lock">
+      <div style="font-size:48px">📅</div>
+      <h3>Histórico</h3>
+      <p>Acesso restrito ao administrador.</p>
+      <input type="password" id="hist-pw" placeholder="···" maxlength="10" onkeydown="if(event.key==='Enter')entrarHist()"/>
+      <div class="lock-err" id="hist-err"></div>
+      <button class="lock-btn" onclick="entrarHist()">Entrar</button>
+    </div>
+    <div id="hist-panel" style="display:none;">
+      <div class="adm-header">
+        <div class="adm-header-title">📅 Histórico de meses</div>
+        <button class="adm-logout" onclick="sairHist()">Sair</button>
+      </div>
+      <div class="sec" id="hist-lista">
+        <div class="feed-empty" style="padding:1.5rem">Carregando...</div>
       </div>
     </div>
   </div>
@@ -239,88 +280,91 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <script>
 const FB='https://painel-team-victory-default-rtdb.firebaseio.com';
-const SENHA_ADMIN='777';
-const CORRETORAS=[
+const PWD='777';
+const CORS=[
   {id:'LA VITA',nome:'La Vita',emoji:'✨'},
   {id:'FFM',nome:'F.F.',emoji:'🥁'},
   {id:'WOA',nome:'WOA',emoji:'✈️'},
   {id:'MJ',nome:'MJ',emoji:'⚽'},
   {id:'AUREM',nome:'Aurem',emoji:'🔥'},
-  {id:'ROCHA',nome:'Rocha',emoji:'💪'},
-  {id:'HENDGES',nome:'Hendges',emoji:'🐶'},
+  {id:'VERTICE',nome:'Vértice',emoji:'🎯'},
 ];
-const S={counts:{},vendas:{}};
-CORRETORAS.forEach(c=>{S.counts[c.id]=0;S.vendas[c.id]=[];});
-let adminLogado=false;
+function mk(d){return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;}
+function mlabel(k){const[y,m]=k.split('-');return new Date(y,m-1,1).toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).replace(/^\w/,c=>c.toUpperCase());}
+const HOJE=new Date(),MA=mk(HOJE);
+const S={counts:{},vendas:{},mv:MA,vc:{},vv:{}};
+CORS.forEach(c=>{S.counts[c.id]=0;S.vendas[c.id]=[];});
+let admOk=false,histOk=false;
 
 function showTab(t){
-  document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('active',['painel','sino','admin'][i]===t));
+  document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('active',['painel','sino','admin','historico'][i]===t));
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+t).classList.add('active');
-  if(t==='admin'&&adminLogado)renderAdmin();
+  if(t==='admin'&&admOk)renderAdm();
+  if(t==='historico'&&histOk)renderHist();
 }
-function maxCount(){return Math.max(1,...Object.values(S.counts));}
+function mx(){return Math.max(1,...Object.values(S.counts));}
 function buildGrid(){
   const g=document.getElementById('grid-corretoras');g.innerHTML='';
-  CORRETORAS.forEach(c=>{
-    const cnt=S.counts[c.id]||0,pct=Math.round(cnt/maxCount()*100);
+  CORS.forEach(c=>{
+    const n=S.counts[c.id]||0,p=Math.round(n/mx()*100);
     const d=document.createElement('div');d.className='cc';d.id='card-'+c.id;
-    d.innerHTML=`<div class="cc-accent"></div><div class="cc-top"><span class="cc-emoji">${c.emoji}</span><div><div class="cc-nome">${c.nome}</div><div class="cc-sub">corretora</div></div></div><div class="bar-row"><div class="bar-bg"><div class="bar-fill" id="bar-${c.id}" style="width:${pct}%"></div></div><div class="cnt" id="cnt-${c.id}">${cnt}</div></div><div class="bells" id="bells-${c.id}">${'🔔'.repeat(Math.min(cnt,12))}</div><div class="last" id="last-${c.id}"></div>`;
+    d.innerHTML=`<div class="cc-accent"></div><div class="cc-top"><span class="cc-emoji">${c.emoji}</span><div><div class="cc-nome">${c.nome}</div><div class="cc-sub">corretora</div></div></div><div class="bar-row"><div class="bar-bg"><div class="bar-fill" id="bar-${c.id}" style="width:${p}%"></div></div><div class="cnt" id="cnt-${c.id}">${n}</div></div><div class="bells" id="bells-${c.id}">${'🔔'.repeat(Math.min(n,12))}</div><div class="last" id="last-${c.id}"></div>`;
     g.appendChild(d);
   });
-  updateTotal();updateWppPreview();
+  updTotal();updWpp();
 }
-function updateCard(id,animate){
-  const cnt=S.counts[id]||0,pct=Math.round(cnt/maxCount()*100);
+function updCard(id,anim){
+  const n=S.counts[id]||0,p=Math.round(n/mx()*100);
   const el=document.getElementById('cnt-'+id),bar=document.getElementById('bar-'+id),bells=document.getElementById('bells-'+id),card=document.getElementById('card-'+id),last=document.getElementById('last-'+id);
   if(!el)return;
-  el.textContent=cnt;bells.textContent='🔔'.repeat(Math.min(cnt,12));bar.style.width=pct+'%';
-  CORRETORAS.forEach(c=>{const b=document.getElementById('bar-'+c.id);if(b)b.style.width=Math.round((S.counts[c.id]||0)/maxCount()*100)+'%';});
-  if(animate){card.classList.add('ring');last.textContent='agora mesmo ✨';last.className='last novo';setTimeout(()=>{card.classList.remove('ring');last.className='last';last.textContent='';},3500);}
-  updateTotal();updateWppPreview();
+  el.textContent=n;bells.textContent='🔔'.repeat(Math.min(n,12));bar.style.width=p+'%';
+  CORS.forEach(c=>{const b=document.getElementById('bar-'+c.id);if(b)b.style.width=Math.round((S.counts[c.id]||0)/mx()*100)+'%';});
+  if(anim){card.classList.add('ring');last.textContent='agora mesmo ✨';last.className='last novo';setTimeout(()=>{card.classList.remove('ring');last.className='last';last.textContent='';},3500);}
+  updTotal();updWpp();
 }
-function updateTotal(){document.getElementById('total-count').textContent=Object.values(S.counts).reduce((a,b)=>a+b,0);}
+function updTotal(){document.getElementById('total-count').textContent=Object.values(S.counts).reduce((a,b)=>a+b,0);}
 function buildMsg(){
-  const d=new Date(),mes=d.toLocaleDateString('pt-BR',{month:'long'}),mesC=mes.charAt(0).toUpperCase()+mes.slice(1);
-  let txt=`Famílias protegidas em ${mesC} 🐰\n\n`;
-  CORRETORAS.forEach(c=>{const cnt=S.counts[c.id]||0;if(cnt>0)txt+=`${c.nome} ${c.emoji} - ${'🔔'.repeat(Math.min(cnt,15))}\n`;});
-  txt+=`\n*Orgulhe-se do caminho que você percorreu, e mantenha o foco*`;
-  return txt;
+  const mes=new Date().toLocaleDateString('pt-BR',{month:'long'});
+  const mesC=mes.charAt(0).toUpperCase()+mes.slice(1);
+  let t=`Famílias protegidas em ${mesC} 🐰\n\n`;
+  CORS.forEach(c=>{const n=S.counts[c.id]||0;if(n>0)t+=`${c.nome} ${c.emoji} - ${'🔔'.repeat(Math.min(n,15))}\n`;});
+  return t+`\n*Orgulhe-se do caminho que você percorreu, e mantenha o foco*`;
 }
-function updateWppPreview(){
-  const msg=buildMsg();
+function updWpp(){
+  const m=buildMsg();
   const p1=document.getElementById('wpp-preview-painel'),p2=document.getElementById('wpp-preview-sino');
-  if(p1)p1.textContent=msg;if(p2)p2.textContent=msg;
+  if(p1)p1.textContent=m;if(p2)p2.textContent=m;
 }
 function onSelectCorretor(){
-  const id=document.getElementById('sel-corretor').value,c=CORRETORAS.find(x=>x.id===id);
+  const id=document.getElementById('sel-corretor').value,c=CORS.find(x=>x.id===id);
   if(c){document.getElementById('sino-emoji').textContent=c.emoji;document.getElementById('my-count').textContent=S.counts[id]||0;}
   else document.getElementById('sino-emoji').textContent='🔔';
-  updateWppPreview();
+  updWpp();
 }
 async function tocarSino(){
   const id=document.getElementById('sel-corretor').value;
   if(!id){setFb('Selecione sua corretora primeiro!','err');return;}
   const valor=parseFloat(document.getElementById('valor-venda').value)||0;
-  const c=CORRETORAS.find(x=>x.id===id);
+  const c=CORS.find(x=>x.id===id);
   const hora=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   S.counts[id]=(S.counts[id]||0)+1;
   if(!S.vendas[id])S.vendas[id]=[];
   S.vendas[id].push({hora,valor,ts:Date.now()});
   try{
-    await fetch(`${FB}/vendas/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.counts[id])});
-    await fetch(`${FB}/producao/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.vendas[id])});
+    await fetch(`${FB}/meses/${MA}/vendas/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.counts[id])});
+    await fetch(`${FB}/meses/${MA}/producao/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.vendas[id])});
   }catch(e){}
-  updateCard(id,true);addFeed(c,hora);
+  updCard(id,true);addFeed(c,hora);
   document.getElementById('my-count').textContent=S.counts[id];
   document.getElementById('valor-venda').value='';
   const btn=document.getElementById('sino-btn');btn.classList.add('tocado');
   const rip=document.getElementById('ripple');rip.classList.remove('go');void rip.offsetWidth;rip.classList.add('go');
   setTimeout(()=>btn.classList.remove('tocado'),700);
   setFb('🔔 Venda registrada às '+hora+'!','ok');setTimeout(()=>setFb('',''),3000);
-  if(adminLogado)renderAdmin();
+  if(admOk)renderAdm();
 }
-function setFb(msg,type){const el=document.getElementById('sino-feedback');el.textContent=msg;el.className='sino-feedback'+(type?' '+type:'');}
+function setFb(m,t){const el=document.getElementById('sino-feedback');el.textContent=m;el.className='sino-feedback'+(t?' '+t:'');}
 function addFeed(c,hora){
   const list=document.getElementById('feed-list'),emp=list.querySelector('.feed-empty');
   if(emp)emp.remove();
@@ -330,119 +374,199 @@ function addFeed(c,hora){
   if(list.children.length>25)list.removeChild(list.lastChild);
 }
 function enviarWpp(){
-  const msg=encodeURIComponent(buildMsg()),isMobile=/Android|iPhone|iPad/i.test(navigator.userAgent),url=isMobile?`whatsapp://send?text=${msg}`:`https://web.whatsapp.com/send?text=${msg}`;
-  window.open(url,'_blank');
+  const msg=encodeURIComponent(buildMsg()),mob=/Android|iPhone|iPad/i.test(navigator.userAgent);
+  window.open(mob?`whatsapp://send?text=${msg}`:`https://web.whatsapp.com/send?text=${msg}`,'_blank');
 }
-function fmtVal(v){return'R$ '+parseFloat(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function fv(v){return'R$ '+parseFloat(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+
 function entrarAdmin(){
-  const s=document.getElementById('admin-senha-input').value;
-  if(s!==SENHA_ADMIN){document.getElementById('admin-lock-err').textContent='Senha incorreta!';return;}
-  adminLogado=true;
+  if(document.getElementById('admin-pw').value!==PWD){document.getElementById('admin-err').textContent='Senha incorreta!';return;}
+  admOk=true;S.mv=MA;
   document.getElementById('admin-lock').style.display='none';
   document.getElementById('admin-panel').style.display='block';
-  renderAdmin();
+  updNav();renderAdm();
 }
 function sairAdmin(){
-  adminLogado=false;
-  document.getElementById('admin-senha-input').value='';
-  document.getElementById('admin-lock-err').textContent='';
+  admOk=false;
+  document.getElementById('admin-pw').value='';
+  document.getElementById('admin-err').textContent='';
   document.getElementById('admin-lock').style.display='flex';
   document.getElementById('admin-panel').style.display='none';
 }
-function renderAdmin(){
-  const container=document.getElementById('admin-corretoras');
-  container.innerHTML='';
-  let totalGeral=0;
-  CORRETORAS.forEach(c=>{
-    const vendas=S.vendas[c.id]||[];
-    const totalC=vendas.reduce((a,v)=>a+(v.valor||0),0);
-    totalGeral+=totalC;
-    const block=document.createElement('div');block.className='admin-corretor-block';
-    const vendasHTML=vendas.length===0
-      ?`<div class="empty-vendas">Nenhuma venda lançada</div>`
-      :vendas.map((v,i)=>`<div class="admin-venda-row"><span class="admin-venda-hora">${v.hora||'--:--'}</span><span class="admin-venda-valor">${fmtVal(v.valor)}</span><button class="admin-venda-del" onclick="adminDeletarVenda('${c.id}',${i})">✕</button></div>`).join('');
-    block.innerHTML=`<div class="admin-corretor-hdr"><span class="admin-corretor-emoji">${c.emoji}</span><span class="admin-corretor-nome">${c.nome}</span><span class="admin-corretor-total">${fmtVal(totalC)}</span><span class="admin-corretor-count">${vendas.length} venda${vendas.length!==1?'s':''}</span></div>${vendasHTML}`;
-    container.appendChild(block);
-  });
-  document.getElementById('admin-total-prod').textContent=fmtVal(totalGeral);
+async function navMes(d){
+  const[y,m]=S.mv.split('-').map(Number);
+  const nd=new Date(y,m-1+d,1);
+  S.mv=mk(nd);
+  await carregarMesView(S.mv);
+  updNav();renderAdm();
 }
-async function adminDeletarVenda(id,idx){
-  S.vendas[id].splice(idx,1);
-  S.counts[id]=S.vendas[id].length;
+function updNav(){
+  const ea=S.mv===MA;
+  document.getElementById('nav-label').textContent=mlabel(S.mv)+(ea?' ':'');
+  document.getElementById('nav-sub').textContent=ea?'Mês em andamento':'Histórico';
+  document.getElementById('btn-prox').disabled=ea;
+  document.getElementById('ro-badge').style.display=ea?'none':'inline';
+  document.getElementById('add-row').style.display=ea?'flex':'none';
+  document.getElementById('adm-actions').style.display=ea?'flex':'none';
+}
+async function carregarMesView(mes){
   try{
-    await fetch(`${FB}/vendas/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.counts[id])});
-    await fetch(`${FB}/producao/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.vendas[id])});
+    const[r1,r2]=await Promise.all([fetch(`${FB}/meses/${mes}/vendas.json`),fetch(`${FB}/meses/${mes}/producao.json`)]);
+    const[d1,d2]=await Promise.all([r1.json(),r2.json()]);
+    S.vc={};S.vv={};
+    CORS.forEach(c=>{S.vc[c.id]=0;S.vv[c.id]=[];});
+    if(d1)CORS.forEach(c=>{if(d1[c.id]!==undefined)S.vc[c.id]=d1[c.id];});
+    if(d2)CORS.forEach(c=>{if(Array.isArray(d2[c.id]))S.vv[c.id]=d2[c.id];});
   }catch(e){}
-  updateCard(id,false);renderAdmin();mostrarSaveMsg('✅ Venda removida!');
 }
-async function adminAdicionarVenda(){
-  const id=document.getElementById('admin-add-corretor').value;
-  if(!id){mostrarSaveMsg('❌ Selecione a corretora');return;}
-  const valor=parseFloat(document.getElementById('admin-add-valor').value)||0;
+function renderAdm(){
+  const ea=S.mv===MA;
+  const counts=ea?S.counts:S.vc;
+  const vendas=ea?S.vendas:S.vv;
+  const cont=document.getElementById('adm-cors');cont.innerHTML='';
+  let tot=0;
+  CORS.forEach(c=>{
+    const vs=vendas[c.id]||[];
+    const tc=vs.reduce((a,v)=>a+(v.valor||0),0);tot+=tc;
+    const b=document.createElement('div');b.className='cor-block';
+    const vh=vs.length===0?`<div class="empty-v">Nenhuma venda lançada</div>`
+      :vs.map((v,i)=>`<div class="venda-row"><span class="venda-hora">${v.hora||'--:--'}</span><span class="venda-val">${fv(v.valor)}</span>${ea?`<button class="venda-del" onclick="admDel('${c.id}',${i})">✕</button>`:''}</div>`).join('');
+    b.innerHTML=`<div class="cor-hdr"><span class="cor-emoji">${c.emoji}</span><span class="cor-nome">${c.nome}</span><span class="cor-total">${fv(tc)}</span><span class="cor-cnt">${vs.length} venda${vs.length!==1?'s':''}</span></div>${vh}`;
+    cont.appendChild(b);
+  });
+  document.getElementById('adm-total').textContent=fv(tot);
+}
+async function admDel(id,idx){
+  S.vendas[id].splice(idx,1);S.counts[id]=S.vendas[id].length;
+  try{
+    await fetch(`${FB}/meses/${MA}/vendas/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.counts[id])});
+    await fetch(`${FB}/meses/${MA}/producao/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.vendas[id])});
+  }catch(e){}
+  updCard(id,false);renderAdm();saveMsg('✅ Venda removida!');
+}
+async function admAdd(){
+  const id=document.getElementById('add-cor').value;
+  if(!id){saveMsg('❌ Selecione a corretora');return;}
+  const valor=parseFloat(document.getElementById('add-val').value)||0;
   const hora=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   if(!S.vendas[id])S.vendas[id]=[];
   S.vendas[id].push({hora,valor,ts:Date.now()});
   S.counts[id]=(S.counts[id]||0)+1;
   try{
-    await fetch(`${FB}/vendas/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.counts[id])});
-    await fetch(`${FB}/producao/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.vendas[id])});
+    await fetch(`${FB}/meses/${MA}/vendas/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.counts[id])});
+    await fetch(`${FB}/meses/${MA}/producao/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.vendas[id])});
   }catch(e){}
-  document.getElementById('admin-add-corretor').value='';
-  document.getElementById('admin-add-valor').value='';
-  updateCard(id,false);renderAdmin();mostrarSaveMsg('✅ Venda adicionada!');
+  document.getElementById('add-cor').value='';document.getElementById('add-val').value='';
+  updCard(id,false);renderAdm();saveMsg('✅ Venda adicionada!');
 }
-function mostrarSaveMsg(txt){
-  const el=document.getElementById('admin-save-msg');
-  el.textContent=txt;setTimeout(()=>el.textContent='',2000);
-}
-async function adminZerarTudo(){
-  if(!confirm('Tem certeza que quer zerar TUDO?'))return;
+async function virarMes(){
+  if(!confirm(`Virar para o próximo mês? Os dados de ${mlabel(MA)} ficam arquivados.`))return;
+  saveMsg('Arquivando...');
   try{
-    const zeros=Object.fromEntries(CORRETORAS.map(c=>[c.id,0]));
-    const vazios=Object.fromEntries(CORRETORAS.map(c=>[c.id,[]]));
-    await fetch(`${FB}/vendas.json`,{method:'PUT',body:JSON.stringify(zeros)});
-    await fetch(`${FB}/producao.json`,{method:'PUT',body:JSON.stringify(vazios)});
-    CORRETORAS.forEach(c=>{S.counts[c.id]=0;S.vendas[c.id]=[];});
-    buildGrid();renderAdmin();
-    document.getElementById('feed-list').innerHTML='<div class="feed-empty">Nenhuma venda ainda hoje.</div>';
-    mostrarSaveMsg('✅ Tudo zerado!');
-  }catch(e){mostrarSaveMsg('❌ Erro ao zerar');}
+    const nd=new Date(HOJE.getFullYear(),HOJE.getMonth()+1,1),nm=mk(nd);
+    const z=Object.fromEntries(CORS.map(c=>[c.id,0])),v=Object.fromEntries(CORS.map(c=>[c.id,[]]));
+    await fetch(`${FB}/meses/${nm}/vendas.json`,{method:'PUT',body:JSON.stringify(z)});
+    await fetch(`${FB}/meses/${nm}/producao.json`,{method:'PUT',body:JSON.stringify(v)});
+    saveMsg('✅ Próximo mês criado! Recarregue a página para começar.');
+  }catch(e){saveMsg('❌ Erro ao virar mês');}
 }
+async function admZerar(){
+  if(!confirm('Zerar TUDO do mês atual?'))return;
+  try{
+    const z=Object.fromEntries(CORS.map(c=>[c.id,0])),v=Object.fromEntries(CORS.map(c=>[c.id,[]]));
+    await fetch(`${FB}/meses/${MA}/vendas.json`,{method:'PUT',body:JSON.stringify(z)});
+    await fetch(`${FB}/meses/${MA}/producao.json`,{method:'PUT',body:JSON.stringify(v)});
+    CORS.forEach(c=>{S.counts[c.id]=0;S.vendas[c.id]=[];});
+    buildGrid();renderAdm();
+    document.getElementById('feed-list').innerHTML='<div class="feed-empty">Nenhuma venda ainda hoje.</div>';
+    saveMsg('✅ Tudo zerado!');
+  }catch(e){saveMsg('❌ Erro ao zerar');}
+}
+function saveMsg(t){const el=document.getElementById('save-msg');el.textContent=t;setTimeout(()=>el.textContent='',2500);}
+
+function entrarHist(){
+  if(document.getElementById('hist-pw').value!==PWD){document.getElementById('hist-err').textContent='Senha incorreta!';return;}
+  histOk=true;
+  document.getElementById('hist-lock').style.display='none';
+  document.getElementById('hist-panel').style.display='block';
+  renderHist();
+}
+function sairHist(){
+  histOk=false;
+  document.getElementById('hist-pw').value='';
+  document.getElementById('hist-err').textContent='';
+  document.getElementById('hist-lock').style.display='flex';
+  document.getElementById('hist-panel').style.display='none';
+}
+async function renderHist(){
+  const lista=document.getElementById('hist-lista');
+  lista.innerHTML='<div class="feed-empty" style="padding:1.5rem">Carregando...</div>';
+  try{
+    const res=await fetch(`${FB}/meses.json`);
+    const data=await res.json();
+    if(!data){lista.innerHTML='<div class="feed-empty" style="padding:1.5rem">Nenhum histórico ainda.</div>';return;}
+    const meses=Object.keys(data).sort((a,b)=>b.localeCompare(a));
+    lista.innerHTML='';
+    for(const mes of meses){
+      const md=data[mes],vendas=md.producao||{},counts=md.vendas||{};
+      const tv=Object.values(counts).reduce((a,b)=>a+(b||0),0);
+      const tp=Object.values(vendas).reduce((a,arr)=>a+(Array.isArray(arr)?arr.reduce((s,v)=>s+(v.valor||0),0):0),0);
+      const ea=mes===MA,did='hd-'+mes;
+      const bloco=document.createElement('div');
+      bloco.innerHTML=`
+        <div class="hist-mes" onclick="togHist('${did}')">
+          <div>
+            <div class="hist-mes-nome">${mlabel(mes)}${ea?'<span class="badge" style="background:#0A3D7C">ATUAL</span>':''}</div>
+            <div class="hist-mes-stats">${tv} vendas · ${fv(tp)}</div>
+          </div>
+          <span style="font-size:16px;color:#ccc">›</span>
+        </div>
+        <div class="hist-det" id="${did}">
+          ${CORS.map(c=>{
+            const vs=vendas[c.id]||[],prod=vs.reduce((a,v)=>a+(v.valor||0),0),cnt=counts[c.id]||0;
+            return`<div class="hist-row"><div class="hist-cor"><span>${c.emoji}</span>${c.nome}</div><div><div class="hist-prod">${fv(prod)}</div><div class="hist-sinos">${cnt} 🔔</div></div></div>`;
+          }).join('')}
+        </div>`;
+      lista.appendChild(bloco);
+    }
+  }catch(e){lista.innerHTML='<div class="feed-empty" style="padding:1.5rem">Erro ao carregar.</div>';}
+}
+function togHist(id){document.getElementById(id).classList.toggle('open');}
+
 async function carregarDados(){
   try{
-    const [r1,r2]=await Promise.all([fetch(`${FB}/vendas.json`),fetch(`${FB}/producao.json`)]);
-    const [d1,d2]=await Promise.all([r1.json(),r2.json()]);
-    if(d1)CORRETORAS.forEach(c=>{if(d1[c.id]!==undefined)S.counts[c.id]=d1[c.id];});
-    if(d2)CORRETORAS.forEach(c=>{if(Array.isArray(d2[c.id]))S.vendas[c.id]=d2[c.id];});
-    buildGrid();setSyncStatus(true,'Ao vivo');
-  }catch(e){setSyncStatus(false,'Erro — verifique a conexão');}
+    const[r1,r2]=await Promise.all([fetch(`${FB}/meses/${MA}/vendas.json`),fetch(`${FB}/meses/${MA}/producao.json`)]);
+    const[d1,d2]=await Promise.all([r1.json(),r2.json()]);
+    if(d1)CORS.forEach(c=>{if(d1[c.id]!==undefined)S.counts[c.id]=d1[c.id];});
+    if(d2)CORS.forEach(c=>{if(Array.isArray(d2[c.id]))S.vendas[c.id]=d2[c.id];});
+    buildGrid();setSt(true,'Ao vivo');
+  }catch(e){setSt(false,'Erro — verifique a conexão');}
 }
-function setSyncStatus(on,txt){
+function setSt(on,txt){
   document.getElementById('sync-dot').className='sync-dot'+(on?' on':' err');
   document.getElementById('sync-txt').textContent=txt;
 }
 function polling(){
   setInterval(async()=>{
     try{
-      const [r1,r2]=await Promise.all([fetch(`${FB}/vendas.json`),fetch(`${FB}/producao.json`)]);
-      const [d1,d2]=await Promise.all([r1.json(),r2.json()]);
-      let changed=false;
-      if(d1)CORRETORAS.forEach(c=>{
-        const novo=d1[c.id]||0;
-        if(novo!==(S.counts[c.id]||0)){
-          const subiu=novo>(S.counts[c.id]||0);
-          S.counts[c.id]=novo;
-          if(subiu){const cf=CORRETORAS.find(x=>x.id===c.id);addFeed(cf,new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}));updateCard(c.id,true);}
-          changed=true;
+      const[r1,r2]=await Promise.all([fetch(`${FB}/meses/${MA}/vendas.json`),fetch(`${FB}/meses/${MA}/producao.json`)]);
+      const[d1,d2]=await Promise.all([r1.json(),r2.json()]);
+      let ch=false;
+      if(d1)CORS.forEach(c=>{
+        const nv=d1[c.id]||0;
+        if(nv!==(S.counts[c.id]||0)){
+          const up=nv>(S.counts[c.id]||0);S.counts[c.id]=nv;
+          if(up){const cf=CORS.find(x=>x.id===c.id);addFeed(cf,new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}));updCard(c.id,true);}
+          ch=true;
         }
       });
-      if(d2)CORRETORAS.forEach(c=>{if(Array.isArray(d2[c.id]))S.vendas[c.id]=d2[c.id];});
-      if(changed){setSyncStatus(true,'Ao vivo');if(adminLogado)renderAdmin();}
-    }catch(e){setSyncStatus(false,'Reconectando...');}
+      if(d2)CORS.forEach(c=>{if(Array.isArray(d2[c.id]))S.vendas[c.id]=d2[c.id];});
+      if(ch){setSt(true,'Ao vivo');if(admOk&&S.mv===MA)renderAdm();}
+    }catch(e){setSt(false,'Reconectando...');}
   },4000);
 }
 buildGrid();
-document.getElementById('ph-mes').textContent=new Date().toLocaleDateString('pt-BR',{month:'long',year:'numeric'});
+document.getElementById('ph-mes').textContent=mlabel(MA);
 carregarDados().then(()=>polling());
 </script>
 </body>
