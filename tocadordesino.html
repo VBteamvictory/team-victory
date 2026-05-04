@@ -135,6 +135,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .hist-cor{font-size:13px;color:#1a1a1a;display:flex;align-items:center;gap:6px;}
 .hist-prod{font-size:13px;font-weight:700;color:#0A3D7C;text-align:right;}
 .hist-sinos{font-size:12px;color:#666;text-align:right;}
+.frase-row{display:flex;flex-direction:column;gap:8px;padding:.75rem 1rem;}
+.frase-inputs{display:flex;gap:8px;}
+.frase-emoji-input{width:70px;padding:.6rem .5rem;font-size:18px;border-radius:10px;border:1.5px solid #ddd;text-align:center;}
+.frase-txt-input{flex:1;padding:.6rem .75rem;font-size:13px;border-radius:10px;border:1.5px solid #ddd;}
+.frase-emoji-input:focus,.frase-txt-input:focus{outline:none;border-color:#0A3D7C;}
+.frase-save-btn{width:100%;padding:.65rem;border-radius:10px;background:#0A3D7C;color:#fff;border:none;font-size:14px;font-weight:600;cursor:pointer;}
+.frase-preview{font-size:12px;color:#888;font-style:italic;padding:.25rem 0;}
 </style>
 </head>
 <body>
@@ -245,6 +252,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="save-msg" id="save-msg"></div>
       </div>
       <div class="sec">
+        <div class="sec-hdr">✏️ Frase do mês</div>
+        <div class="frase-row">
+          <div class="frase-inputs">
+            <input type="text" id="frase-emoji" class="frase-emoji-input" placeholder="🌸" maxlength="4"/>
+            <input type="text" id="frase-titulo" class="frase-txt-input" placeholder="Ex: Famílias protegidas em Maio"/>
+          </div>
+          <input type="text" id="frase-rodape" class="frase-txt-input" placeholder="Frase de encerramento da mensagem"/>
+          <div class="frase-preview" id="frase-preview"></div>
+          <button class="frase-save-btn" onclick="salvarFrase()">💾 Salvar frase</button>
+          <div class="save-msg" id="frase-msg"></div>
+        </div>
+      </div>
+      <div class="sec">
         <div class="total-row">
           <span class="total-lbl">💰 Total geral produção</span>
           <span class="total-val" id="adm-total">R$ 0,00</span>
@@ -292,7 +312,7 @@ const CORS=[
 function mk(d){return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;}
 function mlabel(k){const[y,m]=k.split('-');return new Date(y,m-1,1).toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).replace(/^\w/,c=>c.toUpperCase());}
 const HOJE=new Date(),MA=mk(HOJE);
-const S={counts:{},vendas:{},mv:MA,vc:{},vv:{}};
+const S={counts:{},vendas:{},mv:MA,vc:{},vv:{},frase:{emoji:'🌸',titulo:'Famílias protegidas em '+mlabel(MA).split(' ')[0],rodape:'Orgulhe-se do caminho que você percorreu, e mantenha o foco'}};
 CORS.forEach(c=>{S.counts[c.id]=0;S.vendas[c.id]=[];});
 let admOk=false,histOk=false;
 
@@ -325,11 +345,12 @@ function updCard(id,anim){
 }
 function updTotal(){document.getElementById('total-count').textContent=Object.values(S.counts).reduce((a,b)=>a+b,0);}
 function buildMsg(){
-  const mes=new Date().toLocaleDateString('pt-BR',{month:'long'});
-  const mesC=mes.charAt(0).toUpperCase()+mes.slice(1);
-  let t=`Famílias protegidas em ${mesC} 🐰\n\n`;
+  const titulo=S.frase.titulo||'Famílias protegidas';
+  const emoji=S.frase.emoji||'🌸';
+  const rodape=S.frase.rodape||'Orgulhe-se do caminho que você percorreu, e mantenha o foco';
+  let t=`${titulo} ${emoji}\n\n`;
   CORS.forEach(c=>{const n=S.counts[c.id]||0;if(n>0)t+=`${c.nome} ${c.emoji} - ${'🔔'.repeat(Math.min(n,15))}\n`;});
-  return t+`\n*Orgulhe-se do caminho que você percorreu, e mantenha o foco*`;
+  return t+`\n*${rodape}*`;
 }
 function updWpp(){
   const m=buildMsg();
@@ -384,7 +405,7 @@ function entrarAdmin(){
   admOk=true;S.mv=MA;
   document.getElementById('admin-lock').style.display='none';
   document.getElementById('admin-panel').style.display='block';
-  updNav();renderAdm();
+  updNav();renderAdm();carregarFrase();
 }
 function sairAdmin(){
   admOk=false;
@@ -533,12 +554,42 @@ async function renderHist(){
 }
 function togHist(id){document.getElementById(id).classList.toggle('open');}
 
+async function carregarFrase(){
+  try{
+    const res=await fetch(`${FB}/config/frase.json`);
+    const d=await res.json();
+    if(d){S.frase=d;updWpp();}
+    document.getElementById('frase-emoji').value=S.frase.emoji||'';
+    document.getElementById('frase-titulo').value=S.frase.titulo||'';
+    document.getElementById('frase-rodape').value=S.frase.rodape||'';
+    updFrasePreview();
+  }catch(e){}
+}
+function updFrasePreview(){
+  const e=document.getElementById('frase-emoji').value||'🌸';
+  const t=document.getElementById('frase-titulo').value||'Título';
+  document.getElementById('frase-preview').textContent=`Prévia: "${t} ${e}"`;
+}
+async function salvarFrase(){
+  const emoji=document.getElementById('frase-emoji').value||'🌸';
+  const titulo=document.getElementById('frase-titulo').value||'Famílias protegidas';
+  const rodape=document.getElementById('frase-rodape').value||'Orgulhe-se do caminho que você percorreu, e mantenha o foco';
+  S.frase={emoji,titulo,rodape};
+  try{
+    await fetch(`${FB}/config/frase.json`,{method:'PUT',body:JSON.stringify(S.frase)});
+    updWpp();updFrasePreview();
+    const el=document.getElementById('frase-msg');el.textContent='✅ Frase salva!';setTimeout(()=>el.textContent='',2500);
+  }catch(e){
+    const el=document.getElementById('frase-msg');el.textContent='❌ Erro ao salvar';setTimeout(()=>el.textContent='',2500);
+  }
+}
 async function carregarDados(){
   try{
-    const[r1,r2]=await Promise.all([fetch(`${FB}/meses/${MA}/vendas.json`),fetch(`${FB}/meses/${MA}/producao.json`)]);
-    const[d1,d2]=await Promise.all([r1.json(),r2.json()]);
+    const[r1,r2,r3]=await Promise.all([fetch(`${FB}/meses/${MA}/vendas.json`),fetch(`${FB}/meses/${MA}/producao.json`),fetch(`${FB}/config/frase.json`)]);
+    const[d1,d2,d3]=await Promise.all([r1.json(),r2.json(),r3.json()]);
     if(d1)CORS.forEach(c=>{if(d1[c.id]!==undefined)S.counts[c.id]=d1[c.id];});
     if(d2)CORS.forEach(c=>{if(Array.isArray(d2[c.id]))S.vendas[c.id]=d2[c.id];});
+    if(d3)S.frase=d3;
     buildGrid();setSt(true,'Ao vivo');
   }catch(e){setSt(false,'Erro — verifique a conexão');}
 }
