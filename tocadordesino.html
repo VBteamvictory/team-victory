@@ -378,17 +378,23 @@ async function tocarSino(){
   S.counts[id]=(S.counts[id]||0)+1;
   if(!S.vendas[id])S.vendas[id]=[];
   S.vendas[id].push({hora,valor,ts:Date.now()});
-  try{
-    await fetch(`${FB}/meses/${MA}/vendas/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.counts[id])});
-    await fetch(`${FB}/meses/${MA}/producao/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.vendas[id])});
-  }catch(e){}
+  let salvo=false;
+  for(let tentativa=0;tentativa<3;tentativa++){
+    try{
+      await fetch(`${FB}/meses/${MA}/vendas/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.counts[id])});
+      await fetch(`${FB}/meses/${MA}/producao/${encodeURIComponent(id)}.json`,{method:'PUT',body:JSON.stringify(S.vendas[id])});
+      salvo=true;break;
+    }catch(e){await new Promise(r=>setTimeout(r,1000));}
+  }
   updCard(id,true);addFeed(c,hora);
   document.getElementById('my-count').textContent=S.counts[id];
   document.getElementById('valor-venda').value='';
   const btn=document.getElementById('sino-btn');btn.classList.add('tocado');
   const rip=document.getElementById('ripple');rip.classList.remove('go');void rip.offsetWidth;rip.classList.add('go');
   setTimeout(()=>btn.classList.remove('tocado'),700);
-  setFb('🔔 Venda registrada às '+hora+'!','ok');setTimeout(()=>setFb('',''),3000);
+  if(salvo){setFb('🔔 Venda registrada às '+hora+'!','ok');}
+  else{setFb('⚠️ Venda registrada mas NÃO salva! Verifique a conexão.','err');}
+  setTimeout(()=>setFb('',''),4000);
   if(admOk)renderAdm();
 }
 function setFb(m,t){const el=document.getElementById('sino-feedback');el.textContent=m;el.className='sino-feedback'+(t?' '+t:'');}
